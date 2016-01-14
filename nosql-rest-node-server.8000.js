@@ -35,6 +35,7 @@ if ('development' == app.get('env')) {
 
 app.all('*', midware.header);
 require('./api/user')(app);
+require('./api/post')(app);
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){

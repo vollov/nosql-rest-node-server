@@ -5,7 +5,7 @@ module.exports = function(app) {
 	app.get('/api/user', function(req, res) {
 		db.find('user',{},{},{},10,function(err, users) {
 			if (!err) {
-				return res.send(users);
+				return res.json(users);
 			} else {
 				return console.log(err);
 			}
@@ -17,7 +17,7 @@ module.exports = function(app) {
 		db.findOne('user', {'_id': mongojs.ObjectId(id)}, {}, function(err, user){
 			if (!err) {
 				//console.log('look up user.email = %j',user.email);
-				return res.send(user);
+				return res.json(user);
 			} else {
 				return console.log(err);
 			}
@@ -26,7 +26,7 @@ module.exports = function(app) {
 	
 	app.post('/api/user', function(req, res){
 		db.save('user', req.body);
-		res.send(req.body);
+		res.json(req.body);
 	});
 	
 	app.put('/api/user', function(req, res){
@@ -35,7 +35,7 @@ module.exports = function(app) {
 		delete req.body['_id'];
 		db.update('user',  {'_id': mongojs.ObjectId(id)}, {$set: req.body}, {upsert: false, multi:false},
 			function(){
-				res.send(req.body);
+				res.json(req.body);
 		});
 	});
 	
