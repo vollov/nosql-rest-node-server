@@ -29,13 +29,21 @@ module.exports = function(app) {
 		res.json(req.body);
 	});
 	
-	app.put('/api/post', function(req, res){
-		var id = req.body._id;
+	app.put('/api/post/:id', function(req, res){
+		var id = req.params.id;
 		console.log('editing post id =' + id);
+		console.log('updating ' + req.body);
+		
 		delete req.body['_id'];
 		db.update('post',  {'_id': mongojs.ObjectId(id)}, {$set: req.body}, {upsert: false, multi:false},
-			function(){
-				res.json(req.body);
+			function(err, post){
+				//res.json(req.body);
+			if (!err) {
+				//console.log('look up post.email = %j',post.email);
+				return res.json(post);
+			} else {
+				return console.log(err);
+			}
 		});
 	});
 	
