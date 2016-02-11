@@ -1,0 +1,25 @@
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+ 
+app.use(session({
+    store: new RedisStore(options),
+    secret: 'keyboard cat'
+}));
+
+Options
+A Redis client is required. An existing client can be passed directly using the client param or created for you using the host, port, or socket params.
+
+client An existing client
+host Redis server hostname
+port Redis server portno
+socket Redis server unix_socket
+url Redis server url
+The following additional params may be included:
+
+ttl Redis session TTL (expiration) in seconds
+disableTTL disables setting TTL, keys will stay in redis until evicted by other means (overides ttl)
+db Database index to use
+pass Password for Redis authentication
+prefix Key prefix defaulting to "sess:"
+unref Set true to unref the Redis client. Warning: this is an experimental feature.
+serializer An object containing stringify and parse methods compatible with Javascript's JSON to override the serializer used

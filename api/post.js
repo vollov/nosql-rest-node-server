@@ -1,8 +1,11 @@
 var db = require('../lib/db.js');
 var mongojs = require('mongojs');
+var uuid = require('node-uuid');
 
 module.exports = function(app) {
+	
 	app.get('/api/post', function(req, res) {
+		req.session.vvv = 'value-to-set';// +  uuid.v4();
 		db.find('post',{},{},{},10,function(err, posts) {
 			if (!err) {
 				return res.json(posts);
