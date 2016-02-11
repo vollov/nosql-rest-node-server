@@ -1,4 +1,9 @@
 store session?
+https://www.airpair.com/express/posts/expressjs-and-passportjs-sessions-deep-dive
+npm install express body-parser morgan mongoose jsonwebtoken --save
+impl
+https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
+https://aleksandrov.ws/2013/09/12/restful-api-with-nodejs-plus-mongodb/
 
 res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
 res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
@@ -28,6 +33,9 @@ var store = new MongoDBStore(
 
       
       "connect-redis": "3.0.2",
+      var redis   = require("redis");
+var client  = redis.createClient();
+//var redis = require("redis").createClient();
       //var RedisStore = require('connect-redis')(session);
       //app.locals.redis_options = { host: 'localhost', port: 3000, client: client }
 app.locals.redis_options = { host: 'localhost', client: client}// ttl in seconds, ttl: 5 * 24 * 60 * 60, client: client,port: 6379, db: 0

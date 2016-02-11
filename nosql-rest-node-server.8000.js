@@ -8,13 +8,14 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 
 var MongoDBStore = require('connect-mongodb-session')(session);
-var redis   = require("redis");
-var client  = redis.createClient();
-//var redis = require("redis").createClient();
 
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var errorHandler = require('errorhandler');
+
+// setup passport for authentication
+var passport = require('passport')
+, LocalStrategy = require('passport-local').Strategy;
 
 midware = require('./lib/midware')
 
@@ -45,6 +46,9 @@ app.use(logger('dev'));
 app.use(methodOverride());
 
 app.use(session(sessionOptions));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
