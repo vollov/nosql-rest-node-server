@@ -5,6 +5,11 @@ impl
 https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
 https://aleksandrov.ws/2013/09/12/restful-api-with-nodejs-plus-mongodb/
 
+http://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
+https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+** http://www.sitepoint.com/local-authentication-using-passport-node-js/
+http://stackoverflow.com/questions/17400758/comprehensive-tutorial-for-nodejs-passport-local-strategy-setup
+
 res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
 res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
 
