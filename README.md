@@ -1,6 +1,12 @@
 # nosql-rest-node-server
 node restful server with mongodb
 
+technology stack
+express 4.x
+mongoose
+
+
+
 This server load a user table from mongodb and implements CRUD.
 
 ## setup env

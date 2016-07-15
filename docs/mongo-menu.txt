@@ -1,6 +1,7 @@
 #show dbs
 #db.getCollectionNames()
 
+mongod.exe --dbpath c:\d0\mongodb\data
 
 [1] export to json
 mongoexport --db esm --collection events --out esm_events.json
@@ -30,7 +31,6 @@ db.user.remove()
 switched to db sfm_test
 > db.dropDatabase();
 { "dropped" : "sfm_test", "ok" : 1 }
-
 
 mongo localhost:27017/rental schema.js
 load("schema.js")

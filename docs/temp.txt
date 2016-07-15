@@ -1,0 +1,31 @@
+logger.debug('authentication setting token for sesseion id=' + user_session.id);
+			console.log('authentication setting token for sesseion id=' + user_session.id);
+			user_session.token='little_pug';
+			
+			
+			
+					
+		login : function(credentials) {
+			return $http.post(httpRoot + '/public/login', credentials).
+			success(function(response,status){
+				if(status == 200){
+					cacheSession(response.tokenid);
+					FlashService.clear();
+				}else{
+					loginError(response);
+				}
+			}).
+			error(function(response,status){
+				loginError(response);
+			});
+		},
+		logout : function() {
+			var tokenid = SessionService.get('tid');
+			var logout = $http.get(httpRoot + '/api/logout',
+					{params: {tid: tokenid}});
+			logout.success(uncacheSession);
+			return logout;
+		},
+		isLoggedIn : function() {
+			return !(SessionService.get('tid') == null);
+		}

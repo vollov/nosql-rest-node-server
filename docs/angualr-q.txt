@@ -1,0 +1,4 @@
+http://chariotsolutions.com/blog/post/angularjs-corner-using-promises-q-handle-asynchronous-calls/
+http://haroldrv.com/2015/02/understanding-angularjs-q-service-and-promises/
+http://andyshora.com/promises-angularjs-explained-as-cartoon.html
+http://fdietz.github.io/recipes-with-angular-js/consuming-external-services/deferred-and-promise.html
